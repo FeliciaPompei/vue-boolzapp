@@ -36,7 +36,7 @@
         </header>
         <!-- /header -->
         <!-- main -->
-        <main class="py-4">
+        <main id = "app"class="py-4">
             <div class="container bg-white">
                 <div class="row">
                     <div class="col-4">
@@ -73,10 +73,10 @@
                             <!-- Chat user and message -->
                             <!-- HERE TO ADD V-FOR -->
                             <div class="col-12 my-overflow">
-                                <div class="col-12 d-flex mb-3">
-                                    <img class="img-fluid rounded-circle me-2 avatar-img-size" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
+                                <div class="col-12 d-flex mb-3"  v-for="(avatar, index) in contacts">
+                                    <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
                                     <div>
-                                        <span class="user-name-size">User Name</span>
+                                        <span class="user-name-size"> {{avatar.name}} </span>
                                         <p class="text-secondary my-message-time-font-size">Ultimo messaggio inviato</p>
                                     </div>
                                     <div class="message-sent-time ms-auto">
