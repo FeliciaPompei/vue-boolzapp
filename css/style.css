@@ -2,12 +2,14 @@ body{
     font-family: "Montserrat", sans-serif;
     background-color:#DADBD5;
 }
-
+/* HEADER */
 header{
     background-color: #009788;
     width:100%;
     height: 20vh;
 }
+
+/* MAIN */
 
 main {
     position: absolute;
@@ -16,7 +18,29 @@ main {
     width:100%;
 }
 
+/* TEMPORARY CONTAINER VALUES */
+
 .my-container {
     height: 93vh;
     background-color: palegreen;
 }
+
+
+
+.my-user-avatar img{
+    border-radius: 50%;
+    width:20%;
+}
+
+
+.my-notification-info{
+    font-size: 0.8rem;
+}
+
+.my-notification-bg{
+    background-color: #8edafc;
+}
+.my-notification-text-color{
+    color: #8edafc;
+}
+
