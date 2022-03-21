@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <!-- User tools -->
-                            <div class="col-4 my-user-tools p-3 d-flex justify-content-evenly">
+                            <div class="col-4 my-user-tools p-3 d-flex justify-content-evenly border-end">
                                 <i class="fa-solid fa-circle-notch"></i>
                                 <i class="fa-solid fa-message"></i>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -73,13 +73,13 @@
                             <!-- Chat user and message -->
                             <!-- HERE TO ADD V-FOR -->
                             <div class="col-12 my-overflow">
-                                <div class="col-12 d-flex justify-content-evenly mb-3">
+                                <div class="col-12 d-flex mb-3">
                                     <img class="img-fluid rounded-circle me-2 avatar-img-size" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
                                     <div>
-                                        <span>User Name</span>
+                                        <span class="user-name-size">User Name</span>
                                         <p class="text-secondary my-message-time-font-size">Ultimo messaggio inviato</p>
                                     </div>
-                                    <div class="message-sent-time">
+                                    <div class="message-sent-time ms-auto">
                                         <span>12:00</span>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                     <!-- col right -->
                     <div class="col-8 p-0 m-0">
                         <div class="d-flex">
-                            <!-- avatar and user tools -->
+                            <!-- chat avatar and user tools -->
                             <div class="col-8">
                                 <div class="my-user-avatar d-flex">
                                     <img class="img-fluid rounded-pill m-2" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- User tools -->
+                            <!-- Chat User tools -->
                             <div class="col-4 my-user-tools p-3 d-flex justify-content-end">
                                 <i class="fa-solid fa-magnifying-glass me-3"></i>
                                 <i class="fa-solid fa-paperclip me-3"></i>
@@ -109,14 +109,27 @@
                             </div>
                             
                         </div>
-                        <div class="col-12 my-chat-bg p-0">
+                        <!-- Chat messages -->
+                        <div class="col-12 my-chat-bg p-5">
+                            <div class="col-12 clearfix">
+                                <div class="my-message-card  ps-1 my-sent-message float-end rounded-3 ">
+                                    <p class="mb-0 ms-2 mt-2">Hello</p>
+                                    <p class="text-end mb-1 me-1 my-message-time-font-size">15:04</p>
+                                </div>
+                            </div>
+                            <div class="col-12 clearfix">
+                                <div class="my-message-card  ps-1 float-start rounded-3 ">
+                                    <p class="mb-0 ms-2 mt-2">Hello</p>
+                                    <p class="text-end mb-1 me-1 my-message-time-font-size">15:04</p>
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="col-12 d-flex align-items-center">
-                            <i class="fa-solid fa-face-smile"></i>
+                        <!-- input message bottom bar -->
+                        <div class="col-12 d-flex align-items-center pt-2 px-4">
+                            <i class="fa-solid fa-face-smile fs-4 me-2"></i>
                             <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Scrivi un messaggio">
-                            <i class="fa-solid fa-microphone"></i>
-                            
+                            <i class="fa-solid fa-microphone fs-4 pe-2"></i>
                         </div>
                     </div>
                 </div>
