@@ -2,6 +2,12 @@ body{
     font-family: "Montserrat", sans-serif;
     background-color:#DADBD5;
 }
+
+/* COMMON STYLES */
+i{
+    color:#afafaf;
+}
+
 /* HEADER */
 header{
     background-color: #009788;
@@ -18,22 +24,18 @@ main {
     width:100%;
 }
 
-/* TEMPORARY CONTAINER VALUES */
-
-.my-container {
-    height: 93vh;
-    background-color: palegreen;
-}
-
-
+/* USER AVATAR */
 
 .my-user-avatar img{
     border-radius: 50%;
-    width:20%;
+    width:30px;
+    height:30px;
 }
 
+/* CALL TO ACTION NOTIFICATION */
 
-.my-notification-info{
+.my-notification-info,
+.my-search-bar-font{
     font-size: 0.8rem;
 }
 
@@ -44,3 +46,26 @@ main {
     color: #8edafc;
 }
 
+
+/*  */
+.my-overflow{
+    overflow-y:scroll;
+    height:70vh;
+}
+.avatar-img-size{
+    width:15%;
+    border-radius: 50%;;
+}
+
+.my-message-time-font-size,
+.message-sent-time{
+    font-size: 0.7rem;
+}
+
+/* TEMPORARY CONTAINER VALUES */
+
+.my-chat-bg {
+    height: 80vh;
+    background-image: url(../img/message-background.png);
+    background-size:contain;
+}

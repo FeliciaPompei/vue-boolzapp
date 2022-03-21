@@ -37,36 +37,87 @@
         <!-- /header -->
         <!-- main -->
         <main class="py-4">
-            <div class="container my-container">
+            <div class="container bg-white">
                 <div class="row">
                     <div class="col-4">
+                        <!-- col left on page -->
                         <div class="row">
+                            <!-- user avatar -->
                             <div class="col-8">
                                 <div class="my-user-avatar p-2">
                                     <img class="img-fluid rounded-pill me-2" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
                                     <span>User Name</span>
                                 </div>
                             </div>
+                            <!-- User tools -->
                             <div class="col-4 my-user-tools p-3 d-flex justify-content-evenly">
                                 <i class="fa-solid fa-circle-notch"></i>
                                 <i class="fa-solid fa-message"></i>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
-                            <div class="col-12 p-3 d-flex justify-content-evenly align-items-center my-notification-bg">
+                            <!-- call to action notification -->
+                            <div class="col-12 py-2 d-flex  align-items-center my-notification-bg">
                                 <i class="fa-solid fa-bell-slash rounded-circle bg-white p-2 me-3 fs-5 my-notification-text-color"></i>
                                 <div class="my-notification-info">
-                                    <span>Ricevi notifiche di nuovi messagi</span>
-                                <a href="#">Attiva notifiche desktop</a>
-
+                                    <p class="mb-1">Ricevi notifiche di nuovi messagi</p>
+                                    <a href="#">Attiva notifiche desktop</a>
+                                </div>
+                            </div>
+                            <!-- Search bar -->
+                            <div class="col-12">
+                                <div class="input-group my-3">
+                                    <span class="input-group-text text-secondary bg-light border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Cerca o inizia una nuova chat">
+                                </div>
+                            </div>
+                            <!-- Chat user and message -->
+                            <!-- HERE TO ADD V-FOR -->
+                            <div class="col-12 my-overflow">
+                                <div class="col-12 d-flex justify-content-evenly mb-3">
+                                    <img class="img-fluid rounded-circle me-2 avatar-img-size" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
+                                    <div>
+                                        <span>User Name</span>
+                                        <p class="text-secondary my-message-time-font-size">Ultimo messaggio inviato</p>
+                                    </div>
+                                    <div class="message-sent-time">
+                                        <span>12:00</span>
+                                    </div>
                                 </div>
                                 
-
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-8 bg-info p-0 m-0 ">
-                        ciao
+                    <!-- col right -->
+                    <div class="col-8 p-0 m-0">
+                        <div class="d-flex">
+                            <!-- avatar and user tools -->
+                            <div class="col-8">
+                                <div class="my-user-avatar d-flex">
+                                    <img class="img-fluid rounded-pill m-2" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
+                                    <div>
+                                        <span class=" my-message-time-font-size">User Name</span>
+                                        <p class="text-secondary my-message-time-font-size mb-0">Ultimo accesso oggi alle 12:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- User tools -->
+                            <div class="col-4 my-user-tools p-3 d-flex justify-content-end">
+                                <i class="fa-solid fa-magnifying-glass me-3"></i>
+                                <i class="fa-solid fa-paperclip me-3"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                            
+                        </div>
+                        <div class="col-12 my-chat-bg p-0">
+
+                        </div>
+                        <div class="col-12 d-flex align-items-center">
+                            <i class="fa-solid fa-face-smile"></i>
+                            <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Scrivi un messaggio">
+                            <i class="fa-solid fa-microphone"></i>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
