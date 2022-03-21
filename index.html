@@ -115,17 +115,15 @@
                         </div>
                         <!-- Chat messages -->
                         <div class="col-12 my-chat-bg p-5">
-                            <!-- <div v-for="(message, index) in contacts"> -->
-                                <div class="col-12 clearfix" >
-                                    <div class="my-message-card  ps-1 float-end rounded-3"
-                                    v-for="(message, index) in contacts.messages" >
-                                        <div v-if="contacts.visible">
-                                            <p class="mb-0 ms-2 mt-2"> {{message.message}} </p>
+                                <div class="col-12 clearfix" v-for="(message, index) in contacts[0].messages">
+                                    <div class="my-message-card  ps-1 mb-2 rounded-3"
+                                    :class="(message.status == 'sent') ? 'my-sent-message float-end' : ''" >
+                                        
+                                        <p class="mb-0 ms-2 mt-2" > {{message.message}} </p>
                                         <p class="text-end mb-1 me-1 my-message-time-font-size">{{message.date}}</p>
-                                        </div>
+                                        
                                     </div>
                                 </div>
-                            <!-- </div> -->
                         </div>
                         <!-- input message bottom bar -->
                         <div class="col-12 d-flex align-items-center pt-2 px-4">
