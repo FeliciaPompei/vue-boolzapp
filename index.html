@@ -74,7 +74,7 @@
                             <!-- HERE TO ADD V-FOR -->
                             <div class="col-12 my-overflow">
                                 <div class="col-12 d-flex mb-3"  v-for="(avatar, index) in contacts">
-                                    <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
+                                    <img  @click ="isItVisible(index)"class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
                                     <div>
                                         <span class="user-name-size"> {{avatar.name}} </span>
                                         <p class="text-secondary my-message-time-font-size">Ultimo messaggio inviato</p>
@@ -93,12 +93,16 @@
                         <div class="d-flex">
                             <!-- chat avatar and user tools -->
                             <div class="col-8">
-                                <div class="my-user-avatar d-flex">
-                                    <img class="img-fluid rounded-pill m-2" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
-                                    <div>
-                                        <span class=" my-message-time-font-size">User Name</span>
-                                        <p class="text-secondary my-message-time-font-size mb-0">Ultimo accesso oggi alle 12:00</p>
+                                <div v-for="(avatar, index) in contacts">
+                                    <div class="my-user-avatar d-flex" v-if="avatar.visible">
+                                        <img class="img-fluid rounded-pill m-2" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
+                                        <div>
+                                            <span class=" my-message-time-font-size">{{avatar.name}}</span>
+                                            <p class="text-secondary my-message-time-font-size mb-0">Ultimo accesso oggi alle 12:00</p>
+                                        </div>
+
                                     </div>
+                                    
                                 </div>
                             </div>
                             <!-- Chat User tools -->
@@ -111,19 +115,17 @@
                         </div>
                         <!-- Chat messages -->
                         <div class="col-12 my-chat-bg p-5">
-                            <div class="col-12 clearfix">
-                                <div class="my-message-card  ps-1 my-sent-message float-end rounded-3 ">
-                                    <p class="mb-0 ms-2 mt-2">Hello</p>
-                                    <p class="text-end mb-1 me-1 my-message-time-font-size">15:04</p>
+                            <!-- <div v-for="(message, index) in contacts"> -->
+                                <div class="col-12 clearfix" >
+                                    <div class="my-message-card  ps-1 float-end rounded-3"
+                                    v-for="(message, index) in contacts.messages" >
+                                        <div v-if="contacts.visible">
+                                            <p class="mb-0 ms-2 mt-2"> {{message.message}} </p>
+                                        <p class="text-end mb-1 me-1 my-message-time-font-size">{{message.date}}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 clearfix">
-                                <div class="my-message-card  ps-1 float-start rounded-3 ">
-                                    <p class="mb-0 ms-2 mt-2">Hello</p>
-                                    <p class="text-end mb-1 me-1 my-message-time-font-size">15:04</p>
-                                </div>
-                            </div>
-
+                            <!-- </div> -->
                         </div>
                         <!-- input message bottom bar -->
                         <div class="col-12 d-flex align-items-center pt-2 px-4">

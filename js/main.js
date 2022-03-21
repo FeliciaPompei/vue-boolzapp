@@ -43,7 +43,7 @@ const app = new Vue({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -65,7 +65,7 @@ const app = new Vue({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -87,7 +87,7 @@ const app = new Vue({
             {
                 name: 'Alessandro B.',
                 avatar: '_4',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -104,7 +104,7 @@ const app = new Vue({
             {
                 name: 'Alessandro L.',
                 avatar: '_5',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -121,7 +121,7 @@ const app = new Vue({
             {
                 name: 'Claudia',
                 avatar: '_6',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -143,7 +143,7 @@ const app = new Vue({
             {
                 name: 'Federico',
                 avatar: '_7',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -160,7 +160,7 @@ const app = new Vue({
             {
                 name: 'Davide',
                 avatar: '_8',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -179,11 +179,15 @@ const app = new Vue({
                     }
                 ],
             }
-        ]
+        ],
         
 
     },
     methods : {
+        isItVisible : function (index){
+            this.contacts[index].visible = !this.contacts[index].visible;
+        }
+        
 
     }
 
