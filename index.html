@@ -73,13 +73,13 @@
                             <!-- Chat user and message -->
                             <!-- HERE TO ADD V-FOR -->
                             <div class="col-12 my-overflow">
-                                <div class="col-12 d-flex mb-3"  v-for="(avatar, index) in contacts">
-                                    <img  @click ="isItVisible(index)"class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
+                                <div class="col-12 d-flex mb-3 ps-1 justify-content-center align-items-center"  v-for="(avatar, index) in contacts" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
+                                    <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
                                     <div>
                                         <span class="user-name-size"> {{avatar.name}} </span>
                                         <p class="text-secondary my-message-time-font-size">Ultimo messaggio inviato</p>
                                     </div>
-                                    <div class="message-sent-time ms-auto">
+                                    <div class="message-sent-time ms-auto align-self-start pe-1">
                                         <span>12:00</span>
                                     </div>
                                 </div>
@@ -90,40 +90,40 @@
                     </div>
                     <!-- col right -->
                     <div class="col-8 p-0 m-0">
-                        <div class="d-flex">
-                            <!-- chat avatar and user tools -->
-                            <div class="col-8">
-                                <div v-for="(avatar, index) in contacts">
-                                    <div class="my-user-avatar d-flex" v-if="avatar.visible">
-                                        <img class="img-fluid rounded-pill m-2" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
+                        <div class="chat-wrapper" v-for="(message, index) in contacts" :class="(index == messageIndex) ? 'd-block' : 'd-none' ">
+                            <div class="d-flex">
+                                <!-- chat avatar and user tools -->
+                                <div class="col-8">
+                                
+                                    <div class="my-user-avatar d-flex">
+                                        <img class="img-fluid rounded-pill m-2" :src="`img/avatar${message.avatar}.jpg`" alt="message.name">
                                         <div>
-                                            <span class=" my-message-time-font-size">{{avatar.name}}</span>
+                                            <span class=" my-message-time-font-size">{{message.name}}</span>
                                             <p class="text-secondary my-message-time-font-size mb-0">Ultimo accesso oggi alle 12:00</p>
                                         </div>
 
                                     </div>
-                                    
+                                        
                                 </div>
+                                <!-- Chat User tools -->
+                                <div class="col-4 my-user-tools p-3 d-flex justify-content-end">
+                                    <i class="fa-solid fa-magnifying-glass me-3"></i>
+                                    <i class="fa-solid fa-paperclip me-3"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                
                             </div>
-                            <!-- Chat User tools -->
-                            <div class="col-4 my-user-tools p-3 d-flex justify-content-end">
-                                <i class="fa-solid fa-magnifying-glass me-3"></i>
-                                <i class="fa-solid fa-paperclip me-3"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                            </div>
-                            
-                        </div>
-                        <!-- Chat messages -->
-                        <div class="col-12 my-chat-bg p-5">
-                                <div class="col-12 clearfix" v-for="(message, index) in contacts[0].messages">
-                                    <div class="my-message-card  ps-1 mb-2 rounded-3"
-                                    :class="(message.status == 'sent') ? 'my-sent-message float-end' : ''" >
-                                        
-                                        <p class="mb-0 ms-2 mt-2" > {{message.message}} </p>
-                                        <p class="text-end mb-1 me-1 my-message-time-font-size">{{message.date}}</p>
-                                        
+                            <!-- Chat messages -->
+                            <div class="col-12 my-chat-bg p-5">
+                                <div class="message wrapper" v-for="(chat, index) in contacts[index].messages">
+                                    <div class="col-12 clearfix">
+                                        <div class="my-message-card  ps-1 mb-2 rounded-3" :class="(chat.status == 'sent') ? 'my-sent-message float-end' : ''">
+                                            <p class="mb-0 ms-2 mt-2" > {{chat.message}} </p>
+                                            <p class="text-end mb-1 me-1 my-message-time-font-size">{{chat.date}}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </div>   
+                            </div>
                         </div>
                         <!-- input message bottom bar -->
                         <div class="col-12 d-flex align-items-center pt-2 px-4">

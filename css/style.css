@@ -68,6 +68,10 @@ main {
     font-size: 0.7rem;
 }
 
+.my-bg-hover{
+    background-color: #acacac;
+}
+
 /* Chat messages */
 
 .my-chat-bg {

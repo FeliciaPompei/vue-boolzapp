@@ -180,22 +180,24 @@ const app = new Vue({
                 ],
             }
         ],
+        messageIndex : 0,
         
 
     },
     methods : {
-        isItVisible : function (index){
-            this.contacts[index].visible = !this.contacts[index].visible;
+        contactClick: function(chatIndex){
+            this.messageIndex = chatIndex;
         },
-        // showChat : function() {
-        //     const contactChat = [];
-        //     if(this.contacts[index].visible == true){
-        //         contactChat.push(this.contacts.messages)
-        //     }
-        //     console.log(contactChat);
-        // }
-        
-
+        addMessage : function(listName, itemToAdd){
+            newTask = {
+                item: '',
+                isDone : '',
+            };
+            newTask.item = itemToAdd;
+            newTask.isDone = false;
+            this.newItem = '';
+            listName.push(newTask);
+        },
     }
 
 });
