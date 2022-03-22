@@ -210,6 +210,8 @@ const app = new Vue({
         },
         deleteMessage : function(listName, messageIndex){
             listName.splice(messageIndex, 1);
+            console.log(listName)
+            console.log(messageIndex)
         },
         
     },
