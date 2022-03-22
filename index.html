@@ -124,12 +124,13 @@
                                     </div>
                                 </div>   
                             </div>
-                        </div>
-                        <!-- input message bottom bar -->
-                        <div class="col-12 d-flex align-items-center pt-2 px-4">
-                            <i class="fa-solid fa-face-smile fs-4 me-2"></i>
-                            <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Scrivi un messaggio">
-                            <i class="fa-solid fa-microphone fs-4 pe-2"></i>
+                        
+                            <!-- input message bottom bar -->
+                            <div class="col-12 d-flex align-items-center pt-2 px-4">
+                                <i class="fa-solid fa-face-smile fs-4 me-2"></i>
+                                <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Scrivi un messaggio" v-model="newMessage" @keydown.enter="addMessage (contacts[index].messages, newMessage)">
+                                <i class="fa-solid fa-microphone fs-4 pe-2"></i>
+                            </div>
                         </div>
                     </div>
                 </div>

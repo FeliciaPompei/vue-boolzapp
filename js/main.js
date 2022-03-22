@@ -181,6 +181,7 @@ const app = new Vue({
             }
         ],
         messageIndex : 0,
+        newMessage : '',
         
 
     },
@@ -190,14 +191,24 @@ const app = new Vue({
         },
         addMessage : function(listName, itemToAdd){
             newTask = {
-                item: '',
-                isDone : '',
+                date: '',
+                message: '',
+                status: 'sent',
             };
-            newTask.item = itemToAdd;
-            newTask.isDone = false;
-            this.newItem = '';
+            newTask.date = '22/03/2022';
+            newTask.message = itemToAdd;
+            this.newMessage = '';
             listName.push(newTask);
+            setTimeout ( ()=>{
+                newTask = {
+                    date: '',
+                    message: 'ok',
+                    status: 'received',
+                };
+                listName.push(newTask);
+            }, 1000)
         },
+        
     }
 
 });
