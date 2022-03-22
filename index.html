@@ -67,13 +67,13 @@
                             <div class="col-12">
                                 <div class="input-group my-3">
                                     <span class="input-group-text text-secondary bg-light border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Cerca o inizia una nuova chat">
+                                    <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Cerca o inizia una nuova chat" v-model="search">
                                 </div>
                             </div>
                             <!-- Chat user and message -->
                             <!-- HERE TO ADD V-FOR -->
                             <div class="col-12 my-overflow">
-                                <div class="col-12 d-flex mb-3 ps-1 justify-content-center align-items-center"  v-for="(avatar, index) in contacts" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
+                                <div class="col-12 d-flex mb-3 ps-1 justify-content-center align-items-center"  v-for="(avatar, index) in filteredList" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
                                     <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
                                     <div>
                                         <span class="user-name-size"> {{avatar.name}} </span>
