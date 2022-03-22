@@ -208,6 +208,9 @@ const app = new Vue({
                 listName.push(newTask);
             }, 1000)
         },
+        deleteMessage : function(listName, messageIndex){
+            listName.splice(messageIndex, 1);
+        },
         
     },
     computed: {

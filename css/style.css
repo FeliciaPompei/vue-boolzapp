@@ -69,6 +69,11 @@ main {
 }
 .my-message-time-font-size{
     font-size: 0.6rem;
+    color:gray;
+}
+
+.my-font-size{
+    font-size:0.9rem;
 }
 
 .my-user-info{
@@ -96,6 +101,25 @@ main {
 
 .my-sent-message{
     background-color: #d5f9ba;
+}
+
+.dropdown-options{
+    display:none;
+    background-color:white;
+    width: 130px;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    right:0;
+}
+
+.dropdown-options a{
+    text-decoration: none;
+    color:gray;
+}
+
+.my-dropdown-menu:hover .dropdown-options{
+    display:block;
+    color: red;
 }
 
 /* input message bottom bar */

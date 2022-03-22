@@ -117,7 +117,20 @@
                                 <div class="message wrapper" v-for="(chat, index) in contacts[index].messages">
                                     <div class="col-12 clearfix">
                                         <div class="my-message-card  rounded-3" :class="(chat.status == 'sent') ? 'my-sent-message float-end' : ''">
-                                            <p class="mb-0 " > {{chat.message}} </p>
+                                            <div class="d-flex">
+                                                <p class="mb-0 my-font-size" > {{chat.message}} </p>
+                                                <div class="ms-auto position-relative my-dropdown-menu"><i class="fa-solid fa-angle-down"></i>
+                                                    <div class="dropdown-options position-absolute">
+                                                        <a href="#">
+                                                            Message info
+                                                        </a>
+                                                        <a href="#" @click ="deleteMessage(contacts[index].messages, index)">
+                                                            Delete message
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <p class="text-end my-message-time-font-size m-0">{{chat.date}}</p>
                                         </div>
                                     </div>
@@ -127,7 +140,7 @@
                             <!-- input message bottom bar -->
                             <div class="col-12 my-height d-flex align-items-center pt-2 px-4">
                                 <i class="fa-solid fa-face-smile fs-4 me-2"></i>
-                                <input type="text" class="form-control border-0 my-search-bar-font py-0" placeholder="Scrivi un messaggio" v-model="newMessage" @keydown.enter="addMessage (contacts[index].messages, newMessage)">
+                                <input type="text" class="form-control border-0 my-search-bar-font py-0 mx-2" placeholder="Scrivi un messaggio" v-model="newMessage" @keydown.enter="addMessage (contacts[index].messages, newMessage)">
                                 <i class="fa-solid fa-microphone fs-4 pe-2"></i>
                             </div>
                         </div>
