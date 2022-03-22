@@ -187,10 +187,10 @@ const app = new Vue({
 
     },
     methods : {
-        contactClick: function(chatIndex){
+        contactClick(chatIndex){
             this.messageIndex = chatIndex;
         },
-        addMessage : function(listName, itemToAdd){
+        addMessage(listName, itemToAdd){
             newTask = {
                 date: '',
                 message: '',
@@ -208,10 +208,8 @@ const app = new Vue({
                 listName.push(newTask);
             }, 1000)
         },
-        deleteMessage : function(listName, messageIndex){
-            listName.splice(messageIndex, 1);
-            console.log(listName)
-            console.log(messageIndex)
+        deleteMessage(index){
+            this.contacts[this.messageIndex].messages.splice(index, 1);
         },
         
     },

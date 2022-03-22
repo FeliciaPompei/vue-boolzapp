@@ -114,7 +114,7 @@
                             </div>
                             <!-- Chat messages -->
                             <div class="col-12 my-chat-bg p-5">
-                                <div class="message wrapper" v-for="(chat, index) in contacts[index].messages">
+                                <div class="message wrapper" v-for="(chat, index) in contacts[messageIndex].messages">
                                     <div class="col-12 clearfix">
                                         <div class="my-message-card  rounded-3" :class="(chat.status == 'sent') ? 'my-sent-message float-end' : ''">
                                             <div class="d-flex">
@@ -124,7 +124,7 @@
                                                         <a href="#">
                                                             Message info
                                                         </a>
-                                                        <a href="#" @click ="deleteMessage(contacts[index].messages, index)">
+                                                        <a href="#" @click ="deleteMessage(index)">
                                                             Delete message
                                                         </a>
 
