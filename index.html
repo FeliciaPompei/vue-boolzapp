@@ -36,30 +36,30 @@
         </header>
         <!-- /header -->
         <!-- main -->
-        <main id = "app"class="py-4">
-            <div class="container bg-white">
+        <main id = "app"class="pt-3">
+            <div class="container w-75 bg-white">
                 <div class="row">
                     <div class="col-4">
                         <!-- col left on page -->
                         <div class="row">
                             <!-- user avatar -->
                             <div class="col-8">
-                                <div class="my-user-avatar p-2">
+                                <div class="my-user-avatar pt-3 mb-3">
                                     <img class="img-fluid rounded-pill me-2" src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg" alt="Avatar Image">
-                                    <span>User Name</span>
+                                    <span>Felicia</span>
                                 </div>
                             </div>
                             <!-- User tools -->
-                            <div class="col-4 my-user-tools p-3 d-flex justify-content-evenly border-end">
+                            <div class="col-4 my-user-tools p-0 pt-4 d-flex justify-content-evenly border-end">
                                 <i class="fa-solid fa-circle-notch"></i>
                                 <i class="fa-solid fa-message"></i>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                             <!-- call to action notification -->
-                            <div class="col-12 py-2 d-flex  align-items-center my-notification-bg">
+                            <div class="col-12 py-3 d-flex  align-items-center my-notification-bg">
                                 <i class="fa-solid fa-bell-slash rounded-circle bg-white p-2 me-3 fs-5 my-notification-text-color"></i>
                                 <div class="my-notification-info">
-                                    <p class="mb-1">Ricevi notifiche di nuovi messagi</p>
+                                    <p class="mb-1">Ricevi notifiche di nuovi messaggi</p>
                                     <a href="#">Attiva notifiche desktop</a>
                                 </div>
                             </div>
@@ -71,13 +71,12 @@
                                 </div>
                             </div>
                             <!-- Chat user and message -->
-                            <!-- HERE TO ADD V-FOR -->
                             <div class="col-12 my-overflow">
-                                <div class="col-12 d-flex mb-3 ps-1 justify-content-center align-items-center"  v-for="(avatar, index) in filteredList" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
+                                <div class="d-flex mb-3 ps-1 p-2 align-items-center"  v-for="(avatar, index) in filteredList" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
                                     <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
                                     <div>
                                         <span class="user-name-size"> {{avatar.name}} </span>
-                                        <p class="text-secondary my-message-time-font-size">Ultimo messaggio inviato</p>
+                                        <p class="text-secondary my-message-time-font-size m-0">Ultimo messaggio inviato</p>
                                     </div>
                                     <div class="message-sent-time ms-auto align-self-start pe-1">
                                         <span>12:00</span>
@@ -91,14 +90,14 @@
                     <!-- col right -->
                     <div class="col-8 p-0 m-0">
                         <div class="chat-wrapper" v-for="(message, index) in contacts" :class="(index == messageIndex) ? 'd-block' : 'd-none' ">
-                            <div class="d-flex">
+                            <div class="row">
                                 <!-- chat avatar and user tools -->
-                                <div class="col-8">
+                                <div class="col-8 py-2">
                                 
                                     <div class="my-user-avatar d-flex">
                                         <img class="img-fluid rounded-pill m-2" :src="`img/avatar${message.avatar}.jpg`" alt="message.name">
-                                        <div>
-                                            <span class=" my-message-time-font-size">{{message.name}}</span>
+                                        <div class="my-user-info mt-2">
+                                            <span class="fw-bold message-sent-time">{{message.name}}</span>
                                             <p class="text-secondary my-message-time-font-size mb-0">Ultimo accesso oggi alle 12:00</p>
                                         </div>
 
@@ -106,10 +105,10 @@
                                         
                                 </div>
                                 <!-- Chat User tools -->
-                                <div class="col-4 my-user-tools p-3 d-flex justify-content-end">
+                                <div class="col-4 my-user-tools p-0 pb-3 pt-4 pe-4 d-flex justify-content-end">
                                     <i class="fa-solid fa-magnifying-glass me-3"></i>
                                     <i class="fa-solid fa-paperclip me-3"></i>
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical me-3"></i>
                                 </div>
                                 
                             </div>
@@ -117,18 +116,18 @@
                             <div class="col-12 my-chat-bg p-5">
                                 <div class="message wrapper" v-for="(chat, index) in contacts[index].messages">
                                     <div class="col-12 clearfix">
-                                        <div class="my-message-card  ps-1 mb-2 rounded-3" :class="(chat.status == 'sent') ? 'my-sent-message float-end' : ''">
-                                            <p class="mb-0 ms-2 mt-2" > {{chat.message}} </p>
-                                            <p class="text-end mb-1 me-1 my-message-time-font-size">{{chat.date}}</p>
+                                        <div class="my-message-card  rounded-3" :class="(chat.status == 'sent') ? 'my-sent-message float-end' : ''">
+                                            <p class="mb-0 " > {{chat.message}} </p>
+                                            <p class="text-end my-message-time-font-size m-0">{{chat.date}}</p>
                                         </div>
                                     </div>
                                 </div>   
                             </div>
                         
                             <!-- input message bottom bar -->
-                            <div class="col-12 d-flex align-items-center pt-2 px-4">
+                            <div class="col-12 my-height d-flex align-items-center pt-2 px-4">
                                 <i class="fa-solid fa-face-smile fs-4 me-2"></i>
-                                <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Scrivi un messaggio" v-model="newMessage" @keydown.enter="addMessage (contacts[index].messages, newMessage)">
+                                <input type="text" class="form-control border-0 my-search-bar-font py-0" placeholder="Scrivi un messaggio" v-model="newMessage" @keydown.enter="addMessage (contacts[index].messages, newMessage)">
                                 <i class="fa-solid fa-microphone fs-4 pe-2"></i>
                             </div>
                         </div>

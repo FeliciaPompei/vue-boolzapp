@@ -196,7 +196,6 @@ const app = new Vue({
                 message: '',
                 status: 'sent',
             };
-            newTask.date = '22/03/2022';
             newTask.message = itemToAdd;
             this.newMessage = '';
             listName.push(newTask);

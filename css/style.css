@@ -51,7 +51,7 @@ main {
 /* char avatar messages*/
 .my-overflow{
     overflow-y:scroll;
-    height:70vh;
+    height:66vh;
 }
 .avatar-img-size{
     width:40px;
@@ -63,13 +63,20 @@ main {
     font-size:0.9;
 }
 
-.my-message-time-font-size,
+
 .message-sent-time{
     font-size: 0.7rem;
 }
+.my-message-time-font-size{
+    font-size: 0.6rem;
+}
+
+.my-user-info{
+    line-height:0.8rem;
+}
 
 .my-bg-hover{
-    background-color: #acacac;
+    background-color: #d3d3d3;
 }
 
 /* Chat messages */
@@ -83,8 +90,16 @@ main {
 .my-message-card{
     width:250px;
     background-color:white;
+    padding: 0.3rem 0.5rem 0;
+    margin-bottom: 0.3rem;
 }
 
 .my-sent-message{
     background-color: #d5f9ba;
+}
+
+/* input message bottom bar */
+
+.my-height{
+    height:50px;
 }
