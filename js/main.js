@@ -183,31 +183,36 @@ const app = new Vue({
         messageIndex : 0,
         newMessage : '',
         search: '',
-        updateDate : '',
-        
 
     },
     methods : {
         contactClick(chatIndex){
-            this.messageIndex = chatIndex;
+            if(chatIndex > -1){
+                this.messageIndex = chatIndex;
+            }
         },
         addMessage(listName, itemToAdd){
-            newTask = {
-                date: dayjs().format('HH:mm'),
-                message: '',
-                status: 'sent',
-            };
-            newTask.message = itemToAdd;
-            this.newMessage = '';
-            listName.push(newTask);
-            setTimeout ( ()=>{
+            if(itemToAdd != ''){
                 newTask = {
-                    date: dayjs().format('HH:mm'),
-                    message: 'ok',
-                    status: 'received',
+                    date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                    message: '',
+                    status: 'sent',
                 };
+                newTask.message = itemToAdd.trim();
+                this.newMessage = '';
                 listName.push(newTask);
-            }, 1000)
+            
+                setTimeout ( ()=>{
+                    newTask = {
+                        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                        message: 'ok',
+                        status: 'received',
+                    };
+                    listName.push(newTask);
+                }, 1000)
+            } else{
+                console.log('Non hai inviato nessun messaggio');
+            }
         },
         deleteMessage(index){
             this.contacts[this.messageIndex].messages.splice(index, 1);
