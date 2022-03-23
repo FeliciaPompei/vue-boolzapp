@@ -67,16 +67,16 @@
                             <div class="col-12">
                                 <div class="input-group my-3">
                                     <span class="input-group-text text-secondary bg-light border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Cerca o inizia una nuova chat" v-model="search">
+                                    <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Cerca o inizia una nuova chat" v-model="search" @keydown="searchContact">
                                 </div>
                             </div>
                             <!-- Chat user and message -->
                             <div class="col-12 my-overflow">
-                                <div class="d-flex mb-3 ps-1 p-2 align-items-center"  v-for="(avatar, index) in filteredList" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
-                                    <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${avatar.avatar}.jpg`" alt="avatar.name">
+                                <div class="d-flex mb-3 ps-1 p-2 align-items-center"  v-for="(contact, index) in contacts" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
+                                    <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${contact.avatar}.jpg`" alt="avatar.name">
                                     <div>
-                                        <span class="user-name-size"> {{avatar.name}} </span>
-                                        <p class="text-secondary my-message-time-font-size m-0">Ultimo messaggio inviato</p>
+                                        <span class="user-name-size"> {{contact.name}} </span>
+                                        <p class="text-secondary my-message-time-font-size m-0"> {{getLastMessageTime(contact)}} </p>
                                     </div>
                                     <div class="message-sent-time ms-auto align-self-start pe-1">
                                         <span>12:00</span>
@@ -98,7 +98,7 @@
                                         <img class="img-fluid rounded-pill m-2" :src="`img/avatar${message.avatar}.jpg`" alt="message.name">
                                         <div class="my-user-info mt-2">
                                             <span class="fw-bold message-sent-time">{{message.name}}</span>
-                                            <p class="text-secondary my-message-time-font-size mb-0">Ultimo accesso oggi alle 12:00</p>
+                                            <p class="text-secondary my-message-time-font-size mb-0"> L'ultimo accesso oggi alle 12:00 </p>
                                         </div>
 
                                     </div>
@@ -150,6 +150,8 @@
 
         </main>
         <!-- /main -->
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+        <script src="https://unpkg.com/dayjs@1.8.21/locale/zh-cn.js"></script>
         <script src="js/main.js">
         </script>
     </body>
