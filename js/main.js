@@ -209,17 +209,19 @@ const app = new Vue({
                 listName.push(newTask);
             }, 1000)
         },
-        searchContact() {
-            for (let i = 0; i < this.contacts.length; i++) {
-                this.contacts[i].visible = this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase());
-            }
-        }, 
         deleteMessage(index){
             this.contacts[this.messageIndex].messages.splice(index, 1);
         },
         getLastMessageTime(contact) {
-            const date = contact.messages[contact.messages.length - 1].date;
+            const date = contact.messages[contact.messages.length -1].date;
             return dayjs(date, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
         },
     },
+    computed: {
+        filteredList() {
+            return this.contacts.filter(contact => {
+            return contact.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
+    }
 });

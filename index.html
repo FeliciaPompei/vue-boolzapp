@@ -67,12 +67,12 @@
                             <div class="col-12">
                                 <div class="input-group my-3">
                                     <span class="input-group-text text-secondary bg-light border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Cerca o inizia una nuova chat" v-model="search" @keydown="searchContact">
+                                    <input type="text" class="form-control border-0 my-search-bar-font" placeholder="Cerca o inizia una nuova chat" v-model="search" @keydown.enter="filteredList">
                                 </div>
                             </div>
                             <!-- Chat user and message -->
                             <div class="col-12 my-overflow">
-                                <div class="d-flex mb-3 ps-1 p-2 align-items-center"  v-for="(contact, index) in contacts" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
+                                <div class="d-flex mb-3 ps-1 p-2 align-items-center"  v-for="(contact, index) in filteredList" @click="contactClick(index)" :class="(messageIndex == index) ? 'my-bg-hover' : ''" >
                                     <img class="img-fluid rounded-circle me-2 avatar-img-size" :src="`img/avatar${contact.avatar}.jpg`" alt="avatar.name">
                                     <div>
                                         <span class="user-name-size"> {{contact.name}} </span>
@@ -89,7 +89,7 @@
                     </div>
                     <!-- col right -->
                     <div class="col-8 p-0 m-0">
-                        <div class="chat-wrapper" v-for="(message, index) in contacts" :class="(index == messageIndex) ? 'd-block' : 'd-none' ">
+                        <div class="chat-wrapper" v-for="(message, index) in filteredList" :class="(index == messageIndex) ? 'd-block' : 'd-none' ">
                             <div class="row">
                                 <!-- chat avatar and user tools -->
                                 <div class="col-8 py-2">
