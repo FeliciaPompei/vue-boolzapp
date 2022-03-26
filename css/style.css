@@ -121,6 +121,9 @@ main {
     display:block;
     color: red;
 }
+.my-bg-no-messages{
+    background-color: #e2d7b5;
+}
 
 /* input message bottom bar */
 

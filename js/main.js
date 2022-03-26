@@ -202,15 +202,24 @@ const app = new Vue({
             this.contacts[this.messageIndex].messages.splice(index, 1);
         },
         getLastMessageTime(contact) {
-            const date = contact.messages[contact.messages.length -1].date;
-            return dayjs(date, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
+            if (contact.messages.length > 0){
+                const date = contact.messages[contact.messages.length -1].date;
+                return dayjs(date, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
+            }
         },
-    },
-    computed: {
-        filteredList() {
-            return this.contacts.filter(contact => {
-            return contact.name.toLowerCase().includes(this.search.toLowerCase())
-            })
+        filterContacts(stringToSearch){
+            const self = this;
+            self.contactsNotFound = [];
+
+            self.contacts.forEach((contact) => {
+                if (contact.name.toLowerCase().startsWith(stringToSearch.toLowerCase().trim()))
+                {
+                    contact.visible = true;
+                } else {
+                    contact.visible = false;
+                    self.contactsNotFound.push(contact.name);
+                }
+            });
         }
-    }
+    },
 });
